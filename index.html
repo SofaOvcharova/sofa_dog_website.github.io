@@ -11,18 +11,21 @@
     <style>
         /* Общие стили */
         body {
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Шрифт Comic Sans MS */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff3e0; /* Светло-жёлтый фон */
+            background-color: #fff3e0;
             color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         header {
-            background-image: url('images/dog-background.jpg'); /* Фоновое изображение */
+            background-image: url('images/dog-background.jpg');
             background-size: cover;
             background-position: center;
-            color: white;
+            color: #ff8c42; /* Оранжевый цвет */
             padding: 100px 20px;
             text-align: center;
         }
@@ -33,7 +36,7 @@
         }
 
         nav {
-            background-color: #ff6f61; /* Красный */
+            background-color: #ff6f61;
             padding: 10px;
             text-align: center;
         }
@@ -47,16 +50,16 @@
         }
 
         nav a:hover {
-            color: #ffcc80; /* Жёлтый при наведении */
+            color: #ffcc80;
         }
 
         section {
             padding: 20px;
-            background-color: #ffffff; /* Белый фон для секций */
+            background-color: #ffffff;
             margin: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: none; /* Скрыть все разделы по умолчанию */
+            display: none;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
@@ -67,7 +70,7 @@
         }
 
         footer {
-            background-color: #ff6f61; /* Красный */
+            background-color: #ff6f61;
             color: white;
             text-align: center;
             padding: 10px;
@@ -76,7 +79,7 @@
         }
 
         h2 {
-            color: #ff6f61; /* Красный для заголовков */
+            color: #ff6f61;
             text-align: center;
         }
 
@@ -92,11 +95,11 @@
         }
 
         a {
-            color: #ff6f61; /* Красный для ссылок */
+            color: #ff6f61;
         }
 
         a:hover {
-            color: #ff8c42; /* Оранжевый при наведении */
+            color: #ff8c42;
         }
 
         .breed-info {
@@ -115,14 +118,14 @@
         }
 
         .breed-info h3 {
-            color: #ff6f61; /* Красный для заголовков пород */
+            color: #ff6f61;
             text-align: center;
             font-weight: bold;
-            font-size: 2rem; /* Крупный шрифт */
+            font-size: 2rem;
         }
 
         .breed-info h4 {
-            color: #ff8c42; /* Оранжевый для подзаголовков */
+            color: #ff8c42;
             font-size: 1.5rem;
             text-align: center;
         }
@@ -145,52 +148,40 @@
         }
 
         .breed-info ul.no-paw li::before {
-            content: none; /* Убираем иконку лапки */
+            content: none;
         }
 
         .highlight {
-            color: #ffcc00; /* Ярко-жёлтый цвет для выделения */
+            color: #ffcc00;
             font-weight: bold;
         }
 
         .breed-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Три колонки */
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .breed-list {
-                grid-template-columns: repeat(2, 1fr); /* Две колонки на мобильных */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .breed-list {
-                grid-template-columns: 1fr; /* Одна колонка на очень маленьких экранах */
-            }
         }
 
         .breed-list a {
             display: block;
             text-align: center;
             font-weight: bold;
-            color: #ff6f61; /* Красный цвет */
+            color: #ff0000; /* Ярко-красный цвет */
             text-decoration: none;
             padding: 10px;
-            background-color: #ffcc80; /* Жёлтый фон */
+            background-color: #ffcc80;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
         .breed-list a:hover {
-            background-color: #ff8c42; /* Оранжевый при наведении */
+            background-color: #ff8c42;
             color: white;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Две колонки */
+            grid-template-columns: repeat(5, 1fr); /* Пять колонок */
             gap: 10px;
         }
 
@@ -213,7 +204,7 @@
         }
 
         .gallery-section h3 {
-            color: #ff6f61; /* Красный для заголовков пород */
+            color: #ff6f61;
             text-align: center;
             font-size: 1.5rem;
             margin-bottom: 10px;
@@ -221,7 +212,7 @@
 
         .info-columns {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Две колонки */
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
@@ -250,6 +241,14 @@
         }
 
         @media (max-width: 768px) {
+            .breed-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* Две колонки на мобильных */
+            }
+
             .breed-content {
                 flex-direction: column;
                 text-align: center;
@@ -263,17 +262,24 @@
                 text-align: center;
             }
         }
+
+        @media (max-width: 480px) {
+            .breed-list {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr; /* Одна колонка на очень маленьких экранах */
+            }
+        }
     </style>
-    <!-- FontAwesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
     <header>
         <h1>Добро пожаловать в мир собак!</h1>
     </header>
 
-    <!-- Навигация -->
     <nav>
         <a href="#home" class="tab" data-target="home">
             <i class="fas fa-home"></i> Главная
@@ -289,7 +295,6 @@
         </a>
     </nav>
 
-    <!-- Разделы -->
     <section id="home" class="active">
         <h2>О нашем сайте</h2>
         <p>Здесь вы найдете много информации о разных породах собак и не только!</p>
@@ -678,9 +683,8 @@
         </div>
     </section>
 
-    <!-- Галерея -->
     <section id="gallery">
-        <h2>Галерея</h2>
+        <h2 style="color: #ff0000; font-size: 2.5rem;">Галерея</h2> <!-- Ярко-красный цвет и увеличенный размер -->
         <div class="gallery-section">
             <h3>Померанский шпиц</h3>
             <div class="gallery">
@@ -773,24 +777,20 @@
         </div>
     </section>
 
-    <!-- Контакты -->
     <section id="contact">
         <h2>Контакты</h2>
         <p>Свяжитесь с нами: <a href="mailto:soffa.ovcharova.14@mail.ru">soffa.ovcharova.14@mail.ru</a></p>
     </section>
 
-    <!-- Подвал -->
     <footer>
         <p>&copy; 2025 Мир Собак. Все права защищены.</p>
     </footer>
 
-    <!-- JavaScript для вкладок -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const tabs = document.querySelectorAll('.tab');
             const sections = document.querySelectorAll('section');
 
-            // Функция для активации вкладки
             function activateTab(targetId) {
                 sections.forEach(section => {
                     section.classList.remove('active');
@@ -802,11 +802,9 @@
                     targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
 
-                // Сохраняем активную вкладку в URL
                 history.pushState(null, null, `#${targetId}`);
             }
 
-            // Обработчик кликов по вкладкам
             tabs.forEach(tab => {
                 tab.addEventListener('click', function (event) {
                     event.preventDefault();
@@ -815,11 +813,9 @@
                 });
             });
 
-            // При загрузке страницы активируем вкладку из URL
             const initialTab = window.location.hash.substring(1) || 'home';
             activateTab(initialTab);
 
-            // Анимация галереи
             const galleryImages = document.querySelectorAll('.gallery img');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
